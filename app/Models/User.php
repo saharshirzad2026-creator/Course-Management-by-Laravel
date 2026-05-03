@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Admin;
+use App\Models\Student;
 use Illuminate\Support\Str;
 
 class User extends Authenticatable // implements MustVerifyEmail
@@ -39,6 +41,13 @@ class User extends Authenticatable // implements MustVerifyEmail
      *
      * @return array<string, string>
      */
+    public function student(){
+        return $this->hasOne(Student::class);
+    }
+
+    public function admin(){
+        return $this->hasOne(Admin::class);
+    }
     protected function casts(): array
     {
         return [
