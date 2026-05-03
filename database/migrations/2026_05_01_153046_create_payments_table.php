@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->integer("fee");
+            $table->integer("amount");
             $table->foreignId("student_id")->constrained("students");
-            $table->foreignId("class_id")->constrained("classes");
+            $table->foreignId("sinf_id")->constrained("sinfs");
             $table->timestamps();
         });
     }

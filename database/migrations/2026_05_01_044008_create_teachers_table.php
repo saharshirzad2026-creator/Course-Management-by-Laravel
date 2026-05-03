@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string("photo");
-            $table->string("degree");
+            $table->string("last_name");
+            $table->string("degree_of_education");
+            $table->string("image_url");
             $table->string("phone_number");
-            $table->text("biography");
-            $table->foreignId("des_id")->constrained("designation");
+            $table->text("bio");
+            $table->foreignId("user_id")->constrained("users");
             $table->timestamps();
         });
     }

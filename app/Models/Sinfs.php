@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Calss extends Model
+class Sinfs extends Model
 {
     //
 }

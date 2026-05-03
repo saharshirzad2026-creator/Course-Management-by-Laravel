@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('calsses', function (Blueprint $table) {
+        Schema::create('sinfs', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->string("title");
             $table->date("start_date");
             $table->date("end_date");
-            $table->string("duration");
             $table->text("description");
-            $table->string("banner");
+            $table->string("banner_url");
+            $table->foreignId("teacher_id")->constrained("teachers");
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('calsses');
+        Schema::dropIfExists('sinfs');
     }
 };
