@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
-    //
+    protected $fillable = [
+        "amount",
+        "student_id",
+        "sinf_id"
+    ];
+
     public function student(){
         return $this->belongsTo(Student::class);
     }

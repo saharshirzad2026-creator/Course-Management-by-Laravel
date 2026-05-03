@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sinfs extends Model
 {
-    //
+    protected $fillable = [
+        "title",
+        "start_date",
+        "end_date",
+        "description",
+        "banner_url",
+        "teacher_id"
+    ];
+
     public function payment(){
         return $this->hasMany(Payment::class);
     }
