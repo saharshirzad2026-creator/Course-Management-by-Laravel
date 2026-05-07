@@ -13,5 +13,10 @@ class PaymentSeeder extends Seeder
     public function run(): void
     {
         //
+        DB::table('payments')->insert([
+            "amount"=> "3000afg",
+            "student_id"=> 1,
+            "sinf_id"=> 2,
+        ]);
     }
 }
