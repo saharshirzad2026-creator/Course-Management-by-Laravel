@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40296ffc48584adb0618ceaa438dd131",
+    "content-hash": "a9919d89fa0b7c906172125280952022",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -1147,6 +1147,50 @@
                 "source": "https://github.com/filamentphp/filament"
             },
             "time": "2026-05-02T08:32:32+00:00"
+        },
+        {
+            "name": "filament/widgets",
+            "version": "v4.11.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filamentphp/widgets.git",
+                "reference": "3018efa672d18a0e5a9e858cc70daaa7794a87c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filamentphp/widgets/zipball/3018efa672d18a0e5a9e858cc70daaa7794a87c6",
+                "reference": "3018efa672d18a0e5a9e858cc70daaa7794a87c6",
+                "shasum": ""
+            },
+            "require": {
+                "filament/schemas": "self.version",
+                "filament/support": "self.version",
+                "php": "^8.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Filament\\Widgets\\WidgetsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Filament\\Widgets\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Easily add beautiful dashboard widgets to any Livewire component.",
+            "homepage": "https://github.com/filamentphp/filament",
+            "support": {
+                "issues": "https://github.com/filamentphp/filament/issues",
+                "source": "https://github.com/filamentphp/filament"
+            },
+            "time": "2026-05-02T08:32:20+00:00"
         },
         {
             "name": "fruitcake/php-cors",
