@@ -31,6 +31,11 @@
                     <flux:navlist.item icon="home" :href="route('teachers.index')" :current="request()->routeIs('teachers.index')" wire:navigate>Manage Teachers</flux:navlist.item>
                     <flux:navlist.item icon="home" :href="route('students.index')" :current="request()->routeIs('students.index')" wire:navigate>Manage Students</flux:navlist.item>
                 </flux:navlist.group>
+
+                <flux:navlist.group heading="Finance" class="grid">
+                    <flux:navlist.item icon="home" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>Student Payment</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('teachers.index')" :current="request()->routeIs('teachers.index')" wire:navigate>Teachers Salaries</flux:navlist.item>
+                </flux:navlist.group>
             </flux:navlist>
             <flux:spacer />
 

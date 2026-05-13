@@ -23,7 +23,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get("/manage-users", ListUsers::class)->name('user.index');
+    Route::get("/manage-users", ListUsers::class)->name('users.index');
     Route::get("/manage-students", ListStudents::class)->name('students.index');
     Route::get("/manage-teachers", ListTeachers::class)->name('teachers.index');
 });

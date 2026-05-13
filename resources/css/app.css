@@ -1,5 +1,13 @@
 @import 'tailwindcss';
 
+@utility wrap-anywhere {
+    overflow-wrap: anywhere;
+}
+
+@utility wrap-break-word {
+    overflow-wrap: break-word;
+}
+
 @variant dark (&:where(.dark, .dark *));
 
 @source "../../resources/**/*.blade.php";

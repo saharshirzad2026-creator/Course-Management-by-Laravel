@@ -2,8 +2,9 @@
 
 namespace App\Livewire\Users;
 
-use Filament\Actions\Action;
 use App\Models\User;
+use Filament\Actions\Action;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -42,7 +43,7 @@ class ListUsers extends Component implements HasActions, HasSchemas, HasTable
                 //
                 Action::make('delete')
     ->requiresConfirmation()
-    ->action(fn (User $record) => $record->delete($record_id))
+    ->action(fn (User $record) => $record->delete())
             ]);
             // ->toolbarActions([
             //     BulkActionGroup::make([
