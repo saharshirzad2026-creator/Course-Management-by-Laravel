@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Livewire\Sinfs;
+// namespace App\Livewire\Sinfs;
 
+use App\Models\Sinfs;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -13,7 +15,6 @@ use Filament\Tables\Table;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
-use Sinf;
 
 class ListSinfs extends Component implements HasActions, HasSchemas, HasTable
 {
@@ -27,6 +28,11 @@ class ListSinfs extends Component implements HasActions, HasSchemas, HasTable
             ->query(fn (): Builder => Sinf::query())
             ->columns([
                 //
+                TextColumn::make('title')->label('Course Name')->searchable(),
+                TextColumn::make('teacher.user.name')->label('Teacher Name'),
+                TextColumn::make('start_date'),
+                TextColumn::make('end_date')->toggleable(isToggledHiddenByDefault:true),
+                TextColumn::make('description')->limit(20)
             ])
             ->filters([
                 //

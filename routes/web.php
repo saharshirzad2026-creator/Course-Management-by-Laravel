@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Sinf\ListSinfs;
 use App\Livewire\Users\ListUsers;
 use App\Livewire\Student\ListStudents;
 use App\Livewire\Teacher\ListTeachers;
@@ -26,5 +27,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/manage-users", ListUsers::class)->name('users.index');
     Route::get("/manage-students", ListStudents::class)->name('students.index');
     Route::get("/manage-teachers", ListTeachers::class)->name('teachers.index');
+    Route::get('/manage-sinfs', ListSinfs::class)->name('sinfs.index');
 });
 require __DIR__.'/auth.php';
