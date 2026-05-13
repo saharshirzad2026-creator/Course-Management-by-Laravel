@@ -1,14 +1,10 @@
 <?php
 
-namespace App\Livewire\Teacher;
+namespace App\Livewire\Finance;
 
-use App\Models\Teacher;
-use Filament\Actions\Action;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
-use Filament\Notifications\Notification;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -17,8 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
+use Salary;
 
-class ListTeachers extends Component implements HasActions, HasSchemas, HasTable
+class ListSalaries extends Component implements HasActions, HasSchemas, HasTable
 {
     use InteractsWithActions;
     use InteractsWithTable;
@@ -27,14 +24,9 @@ class ListTeachers extends Component implements HasActions, HasSchemas, HasTable
     public function table(Table $table): Table
     {
         return $table
-            ->query(fn (): Builder => Teacher::query())
+            ->query(fn (): Builder => Salary::query())
             ->columns([
                 //
-                TextColumn::make('user.name')->searchable()->label('Name'),
-                TextColumn::make('last_name')->sortable()->searchable(),
-                TextColumn::make('degree_of_education')->badge(),
-                TextColumn::make('phone_number')->toggleable(isToggledHiddenByDefault:true),
-                TextColumn::make('bio')->limit(20)->toggleable(isToggledHiddenByDefault:true),
             ])
             ->filters([
                 //
@@ -44,11 +36,6 @@ class ListTeachers extends Component implements HasActions, HasSchemas, HasTable
             ])
             ->recordActions([
                 //
-                Action::make('delete')
-    ->requiresConfirmation()
-    ->action(fn (Teacher $record) => $record->delete($record->id))->color('danger')->successNotification(
-        Notification::make()->title('Teacher deleted successfully')->success()
-    ),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
@@ -59,6 +46,6 @@ class ListTeachers extends Component implements HasActions, HasSchemas, HasTable
 
     public function render(): View
     {
-        return view('livewire.teacher.list-teachers');
+        return view('livewire.finance.list-salaries');
     }
 }

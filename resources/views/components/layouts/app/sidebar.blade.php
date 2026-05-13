@@ -27,14 +27,15 @@
 
             <flux:navlist variant="outline">
                 <flux:navlist.group heading="Management" class="grid">
-                    <flux:navlist.item icon="home" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>Manage Users</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('teachers.index')" :current="request()->routeIs('teachers.index')" wire:navigate>Manage Teachers</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('students.index')" :current="request()->routeIs('students.index')" wire:navigate>Manage Students</flux:navlist.item>
+                    <flux:navlist.item icon="user-group" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>Manage Users</flux:navlist.item>
+                    <flux:navlist.item icon="user-circle" :href="route('teachers.index')" :current="request()->routeIs('teachers.index')" wire:navigate>Manage Teachers</flux:navlist.item>
+                    <flux:navlist.item icon="academic-cap" :href="route('students.index')" :current="request()->routeIs('students.index')" wire:navigate>Manage Students</flux:navlist.item>
+                    <flux:navlist.item icon="academic-cap" :href="route('students.index')" :current="request()->routeIs('students.index')" wire:navigate>Manage Class</flux:navlist.item>
                 </flux:navlist.group>
 
                 <flux:navlist.group heading="Finance" class="grid">
-                    <flux:navlist.item icon="home" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>Student Payment</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('teachers.index')" :current="request()->routeIs('teachers.index')" wire:navigate>Teachers Salaries</flux:navlist.item>
+                    <flux:navlist.item icon="banknotes" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>Student Payment</flux:navlist.item>
+                    <flux:navlist.item icon="scale" :href="route('teachers.index')" :current="request()->routeIs('teachers.index')" wire:navigate>Teachers Salaries</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
             <flux:spacer />
