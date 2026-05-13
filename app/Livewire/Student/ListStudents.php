@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Student;
 
+use App\Models\Student;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -27,6 +29,9 @@ class ListStudents extends Component implements HasActions, HasSchemas, HasTable
             ->query(fn (): Builder => Student::query())
             ->columns([
                 //
+                TextColumn::make("last_name"),
+                TextColumn::make("tazkira_no"),
+                TextColumn::make("phone_number"),
             ])
             ->filters([
                 //
@@ -36,6 +41,10 @@ class ListStudents extends Component implements HasActions, HasSchemas, HasTable
             ])
             ->recordActions([
                 //
+                Action::make('delete')
+    ->requiresConfirmation()
+    ->action(fn (Student $record) => $record->delete($record->id))
+
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

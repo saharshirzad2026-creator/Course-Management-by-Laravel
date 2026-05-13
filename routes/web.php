@@ -1,8 +1,8 @@
 <?php
 
+use App\Livewire\Users\ListUsers;
+use App\Livewire\Student\ListStudents;
 use App\Livewire\Teacher\ListTeachers;
-use App\Livewire\Teacher\ListStudents;
-use App\Livewire\Teacher\ListUsers;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 

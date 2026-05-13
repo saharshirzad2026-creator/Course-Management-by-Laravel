@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Users;
 
+use Filament\Actions\Action;
 use App\Models\User;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;
@@ -27,9 +28,9 @@ class ListUsers extends Component implements HasActions, HasSchemas, HasTable
             ->query(fn (): Builder => User::query())
             ->columns([
                 //
-                TextColumn::make('name')->searchable(),
-                TextColumn::make('email'),
-                TextColumn::make('role'),
+                TextColumn::make('name')->searchable()->sortable(),
+                TextColumn::make('email')->searchable(),
+                TextColumn::make('role')->badge(),
             ])
             ->filters([
                 //
@@ -39,12 +40,15 @@ class ListUsers extends Component implements HasActions, HasSchemas, HasTable
             ])
             ->recordActions([
                 //
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    //
-                ]),
+                Action::make('delete')
+    ->requiresConfirmation()
+    ->action(fn (User $record) => $record->delete($record_id))
             ]);
+            // ->toolbarActions([
+            //     BulkActionGroup::make([
+            //         //
+            //     ]),
+            // ]);
     }
 
     public function render(): View
