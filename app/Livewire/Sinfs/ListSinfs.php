@@ -1,8 +1,8 @@
 <?php
 
-// namespace App\Livewire\Sinfs;
+namespace App\Livewire\Sinfs;
 
-use App\Models\Sinfs;
+use App\Models\Sinf;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;

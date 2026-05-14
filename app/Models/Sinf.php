@@ -6,7 +6,7 @@ use App\Models\Teacher;
 use App\Models\Payment;
 use Illuminate\Database\Eloquent\Model;
 
-class Sinfs extends Model
+class Sinf extends Model
 {
     protected $fillable = [
         "title",

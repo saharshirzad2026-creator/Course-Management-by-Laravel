@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\Sinf\ListSinfs;
+use App\Livewire\Sinfs\ListSinfs;
 use App\Livewire\Users\ListUsers;
 use App\Livewire\Student\ListStudents;
 use App\Livewire\Teacher\ListTeachers;
