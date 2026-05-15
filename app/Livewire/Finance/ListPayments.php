@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Finance;
 
+use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -13,7 +14,7 @@ use Filament\Tables\Table;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
-use Payment;
+use App\Models\Payment;
 
 class ListPayments extends Component implements HasActions, HasSchemas, HasTable
 {
@@ -27,6 +28,10 @@ class ListPayments extends Component implements HasActions, HasSchemas, HasTable
             ->query(fn (): Builder => Payment::query())
             ->columns([
                 //
+                TextColumn::make('student.user.name')->label('Student Name')->sortable()->searchable(),
+                TextColumn::make('sinf.title')->label('Course Name')->sortable()->searchable(),
+                TextColumn::make('amount')->money('AFG'),
+                TextColumn::make('created_at')->date(),
             ])
             ->filters([
                 //
