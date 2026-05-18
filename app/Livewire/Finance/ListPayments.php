@@ -2,10 +2,12 @@
 
 namespace App\Livewire\Finance;
 
+use Filament\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Notifications\Notification;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -41,6 +43,11 @@ class ListPayments extends Component implements HasActions, HasSchemas, HasTable
             ])
             ->recordActions([
                 //
+                          Action::make('delete')
+    ->requiresConfirmation()
+    ->action(fn (Student $record) => $record->delete($record->id))->successNotification(
+        Notification::make()->title('deleted successfully'),
+    ),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

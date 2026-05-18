@@ -3,6 +3,8 @@
 namespace App\Livewire\Sinfs;
 
 use App\Models\Sinf;
+use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;
@@ -37,6 +39,9 @@ class ListSinfs extends Component implements HasActions, HasSchemas, HasTable
             ])
             ->filters([
                 //
+                Filter::make('start_date')->schema([
+                    DatePicker::make('start_date'),
+                ]),
             ])
             ->headerActions([
                 //
