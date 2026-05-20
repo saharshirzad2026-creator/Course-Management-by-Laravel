@@ -3,12 +3,14 @@
 namespace App\Livewire\Sinfs;
 
 use App\Models\Sinf;
+use Filament\Actions\Action;
 use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
+use Filament\Notifications\Notification;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -39,15 +41,29 @@ class ListSinfs extends Component implements HasActions, HasSchemas, HasTable
             ])
             ->filters([
                 //
-                Filter::make('start_date')->schema([
-                    DatePicker::make('start_date'),
-                ]),
+                Filter::make('start_date')->label('Filter by Start Date')
+                ->form([
+                    DatePicker::make('start_date')
+                    ->label('Start Date'),
+                ])
+                ->query(function (Builder $query, array $data): Builder {
+                    return $query->when(
+                        $data['start_date'],
+                        fn (Builder $query, $date): Builder =>
+                        $query->whereDate('start_date', '=', $date),
+                    );
+                }),
             ])
             ->headerActions([
                 //
             ])
             ->recordActions([
                 //
+                          Action::make('delete')
+    ->requiresConfirmation()->color()
+    ->action(fn (Sinf $record) => $record->delete($record->id))->successNotification(
+        Notification::make()->title('One class deleted successfully'),
+    ),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
