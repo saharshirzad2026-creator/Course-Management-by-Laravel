@@ -60,7 +60,7 @@ class ListSinfs extends Component implements HasActions, HasSchemas, HasTable
             ->recordActions([
                 //
                           Action::make('delete')
-    ->requiresConfirmation()->color()
+    ->requiresConfirmation()->color('danger')
     ->action(fn (Sinf $record) => $record->delete($record->id))->successNotification(
         Notification::make()->title('One class deleted successfully'),
     ),
