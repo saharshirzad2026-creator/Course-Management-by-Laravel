@@ -44,7 +44,9 @@ class ListStudents extends Component implements HasActions, HasSchemas, HasTable
                 //
             ])
             ->recordActions([
-                //
+                Action::make('edit')
+                ->url(fn (Student $record) : string => route('students.update', $record))
+                ->openUrlInNewTab(),
                 Action::make('delete')
     ->requiresConfirmation()
     ->action(fn (Student $record) => $record->delete($record->id))->successNotification(
