@@ -58,7 +58,9 @@ class ListSinfs extends Component implements HasActions, HasSchemas, HasTable
                 //
             ])
             ->recordActions([
-                //
+                Action::make('edit')
+                ->url(fn (Sinf $record) : string => route('sinfs.update', $record))
+                ->openUrlInNewTab(),
                           Action::make('delete')
     ->requiresConfirmation()->color('danger')
     ->action(fn (Sinf $record) => $record->delete($record->id))->successNotification(
